@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Desejo {
+  id      Int     @id @default(autoincrement())
+  nome    String
+  desejo  String
+  status  String  @default("Aguardando Patrocinador")
+  criadoEm DateTime @default(now())
+}
